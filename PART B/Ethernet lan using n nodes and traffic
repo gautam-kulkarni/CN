@@ -15,6 +15,7 @@ Step 11> save as P4.awk
 Step 12> Commond 5 : awk -f P4.awk P4.tr
 
 //Ethernet lan using n nodes and traffic
+
 set ns [new Simulator]
 set nf [open P4.nam w]
 $ns namtrace-all $nf
