@@ -50,7 +50,7 @@ $ns at 5.5 "finish"
 $ns run
 
 
-//awk z11
+//Awk File
 
 BEGIN {
 sSize=0;
