@@ -1,0 +1,64 @@
+// General Step
+Step 1> Apllication-> system tool-> Konsole
+Step 2> Commond 1 : cd ./ns2/ns-allinone-2.35/ns-2.35/tcl/ex
+Step 3> Commond 2 : gedit P6.tcl
+Step 4> copy the code
+Step 5> Commond 3 : ns2 P6.tcl
+// Run trace file
+Step 6> Open File gedit P6.tcl
+Step 7> Save As P5.tr 
+Step 8> Commond 4 : ns2 P6.tr
+Step 9> gedit P6.tr 
+// Awk File Running
+Step 10> copy the awk file below the code 
+Step 11> save as P6.awk
+Step 12> Commond 5 : awk -f P6.awk P6.tr
+
+//LINK STATE ROUTING
+
+set ns [new Simulator]
+set nf [open P6.nam w]
+$ns namtrace-all $nf
+set tr [open P6.tr w]
+$ns trace-all $tr
+proc finish {} {
+global nf ns tr
+$ns flush-trace
+close $tr
+exec nam P6.nam &
+exit 0
+}
+set n0 [$ns node]
+set n1 [$ns node]
+set n2 [$ns node]
+set n3 [$ns node]
+$ns duplex-link $n0 $n1 10Mb 10ms DropTail
+$ns duplex-link $n1 $n3 10Mb 10ms DropTail
+$ns duplex-link $n2 $n1 10Mb 10ms DropTail
+$ns duplex-link-op $n0 $n1 orient right-down
+$ns duplex-link-op $n1 $n3 orient right
+$ns duplex-link-op $n2 $n1 orient right-up
+set tcp [new Agent/TCP]
+$ns attach-agent $n0 $tcp
+set ftp [new Application/FTP]
+$ftp attach-agent $tcp
+set sink [new Agent/TCPSink]
+$ns attach-agent $n3 $sink
+set udp [new Agent/UDP]
+$ns attach-agent $n2 $udp
+set cbr [new Application/Traffic/CBR]
+$cbr attach-agent $udp
+set null [new Agent/Null]
+$ns attach-agent $n3 $null
+$ns connect $tcp $sink
+$ns connect $udp $null
+$ns rtmodel-at 1.0 down $n1 $n3
+$ns rtmodel-at 2.0 up $n1 $n3
+$ns rtproto LS
+$ns at 0.0 "$ftp start"
+$ns at 0.0 "$cbr start"
+$ns at 5.0 "finish"
+$ns run
+
+//Awk File
+Not present
