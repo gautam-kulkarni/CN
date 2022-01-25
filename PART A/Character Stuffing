@@ -39,7 +39,7 @@ int main()
  printf("\n After stuffing:%s", fs);
 }
 
-//Output
+//OUTPUT
 
 Enter characters to be stuffed:goodday
 Enter a character that represents starting delimiter:d
