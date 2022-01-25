@@ -6,12 +6,12 @@ Step 4> copy the code
 Step 5> Commond 3 : ns2 P2.tcl
 // Run trace file
 Step 6> Open File gedit P2.tcl
-Step 7> Save As P1.tr 
+Step 7> Save As P2.tr 
 Step 8> Commond 4 : ns2 P2.tr
-Step 9> gedit P1.tr 
+Step 9> gedit P2.tr 
 // Awk File Running
 Step 10> copy the awk file below the code 
-Step 11> save as P1.awk
+Step 11> save as P2.awk
 Step 12> Commond 5 : awk -f P2.awk P2.tr
 
 //4 point node with links n0-n2,n1-n2....//
@@ -62,7 +62,7 @@ $ns at 5.0 "finish"
 $ns run
 
 
-//awk File
+//Awk File
 
 BEGIN {
 ctcp=0;
