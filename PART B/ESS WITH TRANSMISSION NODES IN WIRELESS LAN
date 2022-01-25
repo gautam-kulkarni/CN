@@ -15,6 +15,7 @@ Step 11> save as P5.awk
 Step 12> Commond 5 : awk -f P5.awk P5.tr
 
 //ESS WITH TRANSMISSION NODES IN WIRELESS LAN
+
 set ns [new Simulator]
 set tf [open P5.tr w]
 $ns trace-all $tf
@@ -84,6 +85,7 @@ $ns run
 
 
 //AWK File
+
 BEGIN{
 count1=0 ;
 count2=0 ;
