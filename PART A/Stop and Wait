@@ -1,0 +1,56 @@
+
+Step 1> Command 1 : gedit P2.c
+Step 2> Copy the code and paste
+Step 3> Command 2 : cc P2.c
+Step 4> Command 3 : vi p2.c
+Step 5> Command 4 : ./a.out
+step 6> Check output as below
+
+
+
+
+// Stop and Wait Code //
+#include <stdio.h>
+#include <stdlib.h>
+void main()
+{
+int i,j,noframes,x,x1=10,x2;
+noframes=5;
+i=1;
+j=1;
+printf("Number of frames is %d",i);
+while(noframes>0)
+{
+printf("\nSending Frames is %d",i);
+x=rand()%10;
+if(x%10==0)
+{
+for(x2=1;x2<2;x2++)
+{
+printf("\nWriting for %d Seconds",x2);
+}
+printf("\nSending Frames is %d",i);
+x=rand()%10;
+printf("\nAck for frame %d",j);
+noframes=noframes-1;
+j++;
+i++;
+}
+printf("\nEnd of stop and wait Protocol");
+}
+}
+
+
+// Output //
+Number of frames is 5
+Sending Frames is 1
+Ack for frame 1
+Sending Frames is 1
+Ack for frame 3
+Sending Frames is 1
+Ack for frame 5
+Sending Frames is 1
+Ack for frame 7
+Sending Frames is 1
+Ack for frame 9
+End of stop and wait Protocol
